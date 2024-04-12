@@ -1,5 +1,7 @@
 #include <iostream>
 #include <raylib.h>
+#include "Ball.h"
+#include "Paddle.h"
 
 using namespace std;
 
@@ -10,25 +12,27 @@ int main()
     
     InitWindow(windowWidth, windowHeight, "Moja pierwsza gra.");
     SetTargetFPS(60);
+    Ball ball = Ball(windowWidth/2, windowHeight/2, 20);
+
+    Paddle playerPaddle = Paddle(0, (GetScreenHeight() - playerPaddle.GetHeight())/2, 7);
 
     while (!WindowShouldClose())
     {
         BeginDrawing();
-
+        ball.update();
+        playerPaddle.update();
         ClearBackground(RAYWHITE);
 
         DrawLine(windowWidth /2, 0, windowWidth/2,windowHeight, BLACK);
 
-        DrawCircle(windowWidth/2, windowHeight/2, 20, BLACK);
+        ball.draw();
+        playerPaddle.draw();
 
-
-        DrawRectangle(10, windowHeight/2 - 60, 25, 120, BLACK );
-
-        DrawRectangle(windowWidth - 35 , windowHeight/2 - 60, 25, 120, BLACK );
 
         EndDrawing();
     }
     
+    CloseWindow();
 
     return 0;
 }
