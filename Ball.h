@@ -1,5 +1,5 @@
 #pragma once
-
+#include <raylib.h>
 class Ball
 {
 private:
@@ -13,4 +13,12 @@ public:
     void draw();
 
     void update();
+
+    void reset();
+
+    void ReactOnCollisionWith(Rectangle paddleRect);
+    
+    inline float GetPosX() const {return posX;}
+    inline float GetPosY() const {return posY;}
+    inline int GetRadius() const {return radius;}
 };

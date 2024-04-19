@@ -1,15 +1,13 @@
 #include "Paddle.h"
-#include <raylib.h>
+
 
 Paddle::Paddle(float posX, float posY, int speed)
 {
     this->posX = posX;
     this->posY = posY;
     this->speed = speed;
-
-    width = 25;
-    height = 120;
 }
+
 
 void Paddle::draw()
 {
@@ -18,6 +16,7 @@ void Paddle::draw()
 
 void Paddle::update()
 {
+
     if (IsKeyDown(KEY_W))
     {
         posY -= speed;
@@ -36,5 +35,14 @@ void Paddle::update()
         posY =  GetScreenHeight()- height;
     }
     
+}
 
+Rectangle Paddle::GetPaddleRectangle()
+{ 
+    Rectangle rect = Rectangle();
+    rect.height = height;
+    rect.width = width;
+    rect.x = posX;
+    rect.y = posY;
+    return rect;
 }
