@@ -1,5 +1,5 @@
 #pragma once
-
+#include <raylib.h>
 class Ball
 {
 private:
@@ -13,4 +13,10 @@ public:
     void draw();
 
     void update();
+
+    void changeDirection();
+
+    inline float GetPosY() const { return posY; }
+    inline Vector2 GetCenter() const { return Vector2{posX, posY}; }
+    inline int GetRadius() const {return radius;}
 };

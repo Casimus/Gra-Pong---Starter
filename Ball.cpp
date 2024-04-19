@@ -16,6 +16,11 @@ void Ball::draw()
     DrawCircle(posX, posY, radius, BLACK);
 }
 
+void Ball::changeDirection()
+{
+    speedX *= -1;
+}
+
 void Ball::update()
 {
     posX += speedX;

@@ -1,8 +1,8 @@
 #pragma once
-
+#include <raylib.h>
 class Paddle
 {
-private:
+protected:
     float posX, posY;
     int speed;
     float width, height;
@@ -15,4 +15,6 @@ public:
     void update();
 
     inline float GetHeight() const {return height;}
+    inline float GetWidth() const {return width;}
+    inline Rectangle GetRect() const {return Rectangle{posX , posY, width, height};}
 };
